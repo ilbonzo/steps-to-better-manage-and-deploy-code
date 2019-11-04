@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>reveal.js</title>
+		<title>Steps to better manage and deploy code</title>
 
 		<link rel="stylesheet" href="css/reset.css">
 		<link rel="stylesheet" href="css/reveal.css">
@@ -25,8 +25,376 @@
 	<body>
 		<div class="reveal">
 			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
+				<section>
+					<h1>Steps to better manage and deploy code</h1>
+				</section>
+				<section>
+					<strong>Matteo Magni</strong><br/>
+					<a href="https://magni.me">https://magni.me</a>
+				</section>
+				<section>
+					<a href="https://www.joelonsoftware.com/2000/08/09/the-joel-test-12-steps-to-better-code/" target="_blank">The Joel test</a>
+					<strong>: 12 Steps to Better Code</strong>
+				</section>
+				<section>
+					<ol>
+						<li>Do you use source control?</li>
+						<li>Can you make a build in one step?</li>
+						<li>Do you make daily builds?</li>
+						<li>...</li>
+						<!--<li>Do you have a bug database?</li>
+						<li>Do you fix bugs before writing new code?</li>
+						<li>Do you have an up-to-date schedule?</li>
+						<li>Do you have a spec?</li>
+						<li>Do programmers have quiet working conditions?</li>
+						<li>Do you use the best tools money can buy?</li>
+						<li>Do you have testers?</li>
+						<li>Do new candidates write code during their interview?</li>
+						<li>Do you do hallway usability testing?</li>-->
+					</ol>
+				</section>
+				<section>
+					<blockquote>Version control, also known as revision control or source control,[1] is the management of changes to documents, computer programs, large web sites, and other collections of information. </blockquote>
+				</section>
+				<section>
+					<blockquote>Changes are usually identified by a number or letter code, termed the "revision number", "revision level", or simply "revision"</blockquote>
+				</section>
+				<section>
+					<blockquote>For example, an initial set of files is "revision 1". When the first change is made, the resulting set is "revision 2", and so on. Each revision is associated with a timestamp and the person making the change. Revisions can be compared, restored, and with some types of files, merged.</blockquote>
+				</section>
+				<section>
+					<h2>Git</h2>
+					<a href="https://git-scm.com/" target="_blank">https://git-scm.com/</a>
+				</section>
+				<section>
+					<blockquote>Git was created by Linus Torvalds in 2005 for development of the Linux kernel</blockquote>
+				</section>
+				<section>
+					<blockquote>Torvalds sarcastically quipped about the name git (which means unpleasant person in British English slang): <br/>
+						"I'm an egotistical bastard, and I name all my projects after myself.
+						<br/>First 'Linux', now 'git'."
+						<br/>The man page describes Git as "the stupid content tracker".
+						</blockquote>
+				</section>
+				<section>
+					<img src="/images/git-diff.png" />
+				</section>
+				<section>
+					<a href="https://rogerdudler.github.io/git-guide/" target="_blank">https://rogerdudler.github.io/git-guide/</a>
+				</section>
+				<section>
+					<a href="https://ohshitgit.com/" target="_blank">https://ohshitgit.com/</a>
+				</section>
+				<section>
+					<h3>Git as a service</h3>
+					<ul>
+						<li><a href="https://github.com" target="_blank">Github</a></li>
+						<li><a href="https://bitbucket.org" target="_blank">Bitbucket</a></li>
+						<li><a href="https://gitlab.com" target="_blank">Gitlab</a></li>
+					</ul>
+				</section>
+				<section>
+					<ul>
+						<li><a href="https://desktop.github.com/" target="_blank">https://desktop.github.com/</a></li>
+						<li><a href="https://www.sourcetreeapp.com/" target="_blank">https://www.sourcetreeapp.com/</a></li>
+					</ul>
+				</section>
+				<section>
+					<h3>Build</h3>
+					<blockquote>That is, the construction of something that has an observable and tangible result</blockquote>
+				</section>
+				<section>
+					<blockquote>The term build may refer to the process by which source code is converted into a stand-alone form that can be run on a computer or to the form itself. </blockquote>
+				</section>
+				<section>
+					<h4>repetitive tasks</h4>
+					<img src="/images/stupid-bird.gif" />
+				</section>
+				<section>
+					<ul>
+						<li>Install dependencies</li>
+						<li>Compile</li>
+						<li>Minify code</li>
+						<li>Run tests</li>
+						<li>...</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Install dependencies</h3>
+					<p>don't versioning the code of others</p>
+				</section>
+				<section>
+					<h2>Composer</h2>
+					<a href="https://getcomposer.org/" target="_blank">https://getcomposer.org/</a>
+				</section>
+				<section>
+					<blockquote>Composer is a tool for dependency management in PHP. It allows you to declare the libraries your project depends on and it will manage (install/update) them for you.</blockquote>
+				</section>
+				<section>
+					<pre>
+composer init
+					</pre>
+				</section>
+				<section>
+					<pre>
+{
+	"name": "ilbonzo/wp-site",
+	"type": "project",
+	"require": {}
+}
+					</pre>
+				</section>
+				<section>
+					<strong>Repetitive tasks in multi environments</strong><br/>
+					<ul>
+						<li>Development</li>
+						<li>Testing</li>
+						<li>Staging</li>
+						<li>Production</li>
+					</ul>
+				</section>
+				<section>
+					<ul>
+						<li>Apache version and modules </li>
+						<li>Php version and extensions</li>
+						<li>Mysql version</li>
+						<li>Linux filesystem or Windows</li>
+						<li>...</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Developer</h3>
+					<img src="/images/developer-fear.gif" />
+				</section>
+				<section>
+					<h2>Vagrant</h2>
+				</section>
+				<section>
+					<blockquote>Vagrant is a tool for building and managing virtual machine environments in a single workflow. With an easy-to-use workflow and focus on automation, Vagrant lowers development environment setup time, increases production parity, and makes the "works on my machine" excuse a relic of the past.</blockquote>
+				</section>
+				<section>
+					<p>Vagrant support VirtualBox, Hyper-V, VMWare and Docker as provider</p>
+				</section>
+				<section>
+					<ul>
+						<pre>vagrant up</pre>
+						<pre>vagrant halt</pre>
+						<pre>vagrant ssh</pre>
+						<pre>vagrant destroy</pre>
+					</ul>
+				</section>
+				<section>
+					<p>Vagrant boxes</p>
+					<a href="https://www.vagrantup.com/docs/boxes.html" target="_blank">https://www.vagrantup.com/docs/boxes.html</a>
+				</section>
+				<section>
+					<h2>Wordpress</h2>
+				</section>
+				<section>
+					<ul>
+						<li>Linux</li>
+						<li>Apache</li>
+						<li>MySQL</li>
+						<li>PHP</li>
+					</ul>
+				</section>
+				<section>
+					<a href="https://app.vagrantup.com/beet/boxes/box" target="_blank">https://app.vagrantup.com/beet/boxes/box</a>
+					<pre>
+	vagrant init beet/box
+	vagrant up
+					</pre>
+				</section>
+				<section>
+					<pre>
+	mkdir -p site/web
+	vagrant ssh
+	sudo ln -s /vagrant/site/web /var/beetbox
+	mysqladmin -u root password password
+					</pre>
+				</section>
+				<section>
+					<pre>
+	// site/index.php
+	&lt;?php
+	phpinfo();
+					</pre>
+				</section>
+				<section>
+					<pre>
+	composer require johnpbloch/wordpress
+					</pre>
+				</section>
+				<section>
+					<pre>
+	"require": {
+		"johnpbloch/wordpress": "^5.2"
+	}
+					</pre>
+				</section>
+				<section>
+					<pre>
+	{
+		"name": "ilbonzo/wp-site",
+		"type": "project",
+		"config": {
+			"vendor-dir": "web/content/vendor"
+		},
+		"extra": {
+			"wordpress-install-dir": "web/wp"
+		},
+		"require": {
+			"johnpbloch/wordpress": "^5.2"
+		}
+	}
+					</pre>
+				</section>
+				<section>
+					<pre>
+						// wp-config.php
+	&lt;?php
+	// Load Composer’s autoloader
+	require_once (__DIR__.'/../content/vendor/autoload.php');
+
+	// Move the location of the content dir
+	define('WP_CONTENT_DIR', dirname(__FILE__).'/../content');
+					</pre>
+				</section>
+				<section>
+					<pre>
+						// index.php
+	&lt;?php
+	/** Loads the WordPress Environment and Template */
+	require( dirname( __FILE__ ) . '/wp/wp-blog-header.php' );
+					</pre>
+				</section>
+				<section>
+					<pre>
+	RewriteEngine on
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteCond %{REQUEST_FILENAME} !-d
+	RewriteRule ^(.*)$ /wp/$1
+
+					</pre>
+				</section>
+				<section>
+					<pre>
+{
+	...
+	"repositories": [
+		{
+			"type": "composer",
+			"url" : "https://wpackagist.org"
+		}
+	],
+	"extra": {
+		...
+		"installer-paths": {
+			"web/content/plugins/{$name}/": ["type:wordpress-plugin"],
+			"web/content/themes/{$name}/": ["type:wordpress-theme"]
+		}
+	},
+	"require": {
+		...
+		"wpackagist-theme/twentynineteen": "*"
+	}
+}
+
+					</pre>
+				</section>
+				<section>
+					<pre>
+	// wp-config.php
+	define('WP_THEME_DIR',  dirname(__FILE__).'/../content/themes' );
+	define('WP_PLUGIN_DIR',  dirname(__FILE__).'/../content/plugins' );
+					</pre>
+				</section>
+				<section>
+					<pre>
+	composer update
+					</pre>
+				</section>
+				<section>
+					<h3>.gitignore</h3>
+				</section>
+				<section>
+					<pre>
+	site/web/wp/
+	site/web/content/vendor/
+	site/web/content/themes/*
+	site/web/content/plugins/*
+
+	.vagrant
+					</pre>
+				</section>
+				<section>
+					<h2>Wordpress Child theme</h2>
+				</section>
+				<section>
+					<strong>luna-fl-theme</strong>
+					<pre>
+/*
+Theme Name:   Luna FL partner theme
+Description:  Twenty Nineteen Child Theme
+Author:       John Doe
+Author URI:   http://example.com
+Template:     twentynineteen
+Version:      1.0.0
+License:      GNU General Public License v2 or later
+License URI:  http://www.gnu.org/licenses/gpl-2.0.html
+Tags:         light, dark, two-columns
+Text Domain:  twentynineteenchild
+*/
+					</pre>
+				</section>
+				<section>
+					<h3>Negate gitignore pattern</h3>
+					<pre>
+	!site/web/content/themes/luna-fl-theme
+					</pre>
+				</section>
+				<section>
+					<pre>
+	$ git status
+
+	new file:   .gitignore
+	new file:   Vagrantfile
+	new file:   site/composer.json
+	new file:   site/composer.lock
+	new file:   site/web/content/themes/luna-fl-theme/style.css
+	new file:   site/web/index.php
+					</pre>
+				</section>
+				<section>
+					<h3>Do the same for a plugin</h3>
+				</section>
+				<section>
+					<h3>Does it works?</h3>
+				</section>
+				<section>
+					<h2>Deploy</h2>
+				</section>
+				<section>
+					<h2>Deployer</h2>
+					<a href="https://deployer.org/" target="_blank">https://deployer.org/</a>
+				</section>
+				<section>
+					<pre>
+	curl -LO https://deployer.org/deployer.phar
+	mv deployer.phar /usr/local/bin/dep
+	chmod +x /usr/local/bin/dep
+					</pre>
+				</section>
+				<section>
+					<pre>
+	dep init
+					</pre>
+				</section>
+				<section>
+					<h2>Matteo Magni</h2>
+					<h4>Twitter <a href="http://github.com/ilbonzo" target="_blank">@ilbonzo</a></h4>
+					<h4>Github <a href="http://twitter.com/ilbonzo" target="_blank">@ilbonzo</a></h4>
+				  </section>
 			</div>
 		</div>
 
